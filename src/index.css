@@ -1,0 +1,130 @@
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 台风知识学习系统 - 气象仪表盘风格 */
+
+@layer base {
+  :root {
+    --radius: 0.125rem;
+    --background: 210 20% 97%;
+    --foreground: 220 25% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+    --primary: 215 55% 25%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 25% 93%;
+    --secondary-foreground: 215 55% 25%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 15% 50%;
+    --accent: 210 20% 92%;
+    --accent-foreground: 215 55% 25%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 215 55% 25%;
+    --chart-1: 215 55% 45%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 18 80% 55%;
+    --sidebar-background: 215 55% 25%;
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: 210 40% 98%;
+    --sidebar-primary-foreground: 215 55% 25%;
+    --sidebar-accent: 215 45% 32%;
+    --sidebar-accent-foreground: 210 40% 95%;
+    --sidebar-border: 215 40% 35%;
+    --sidebar-ring: 18 80% 55%;
+    --warning: 18 80% 55%;
+    --warning-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 210 30% 92%;
+    --card: 220 25% 12%;
+    --card-foreground: 210 30% 92%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 30% 92%;
+    --primary: 210 40% 70%;
+    --primary-foreground: 220 25% 8%;
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 210 30% 92%;
+    --muted: 220 20% 16%;
+    --muted-foreground: 215 15% 55%;
+    --accent: 220 20% 14%;
+    --accent-foreground: 210 30% 92%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 210 40% 70%;
+    --chart-1: 215 60% 55%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 220 25% 6%;
+    --sidebar-foreground: 210 30% 90%;
+    --sidebar-primary: 210 40% 70%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 20% 12%;
+    --sidebar-accent-foreground: 210 30% 90%;
+    --sidebar-border: 220 20% 15%;
+    --sidebar-ring: 18 80% 55%;
+    --warning: 18 80% 55%;
+    --warning-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  }
+}
+
+/* 滚动条样式 */
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+}
+
+/* 撒花动画 */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti-piece {
+  position: fixed;
+  top: -20px;
+  animation: confetti-fall linear forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
